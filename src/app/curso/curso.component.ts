@@ -1,6 +1,7 @@
 import { CursoService } from './servico/curso.service';
 import { Component, OnInit } from '@angular/core';
 import { Curso } from './servico/Curso';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-curso',
@@ -10,19 +11,32 @@ import { Curso } from './servico/Curso';
 export class CursoComponent implements OnInit {
 
   curso: Curso = new Curso;
+  listaCursos: Curso[] = [];
 
-  constructor(private cursoServico: CursoService) { }
+  constructor(
+    private _cursoServico: CursoService,
+    private _router: Router
+    ) { }
 
   ngOnInit(): void {
+    this._cursoServico.pesquisar(this.curso.nome).subscribe(
+      (data: Curso[]) => {
+        this.listaCursos = data;
+      }
+    );
   }
 
   exibirAlerta() {
-    this.cursoServico.pesquisar(this.curso.nome).subscribe(
-      data => {
-        console.log(data)
+    this._cursoServico.pesquisar(this.curso.nome).subscribe(
+      (data: Curso[]) => {
+        this.listaCursos = data;
       }
     );
 
+  }
+
+  incluir() {
+    this._router.navigate(['/curso/incluir']);
   }
 
 }

@@ -1,3 +1,4 @@
+import { CursoManterComponent } from './curso/curso-manter/curso-manter.component';
 import { CursoComponent } from './curso/curso.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -13,6 +14,11 @@ const routes: Routes = [
   {
     path: 'curso',
     component: CursoComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'curso/incluir',
+    component: CursoManterComponent,
     pathMatch: 'full'
   }
 ];

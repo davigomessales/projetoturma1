@@ -1,0 +1,49 @@
+<app-layout>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Curso - Incluir</h5>
+            <!-- Input do Curso -->
+            <div class="row">
+                <div class="form-group col-12">
+                    <label for="nome" class="control-label">Nome:</label>
+                    <input type="text" class="form-control" [(ngModel)]="curso.nome" />
+                </div>
+            </div>
+            <!-- Input do Instrutor -->
+            <div class="row">
+                <div class="form-group col-12">
+                    <label for="nome" class="control-label">Instrutor:</label>
+                    <input type="text" class="form-control" [(ngModel)]="curso.instrutor" />
+                </div>
+            </div>
+            <!-- Input do Local -->
+            <div class="row">
+                <div class="form-group col-12">
+                    <label for="nome" class="control-label">Local:</label>
+                    <input type="text" class="form-control" [(ngModel)]="curso.local" />
+                </div>
+            </div>
+            <div class="row">
+                <!-- Input da Carga Horária -->
+                <div class="form-group col-6">
+                    <label for="nome" class="control-label">Carga Horária:</label>
+                    <input type="text" class="form-control" [(ngModel)]="curso.cargaHoraria" />
+                </div>
+                <!-- Input da Data -->
+                <div class="form-group col-6">
+                    <label for="nome" class="control-label">Data Início:</label>
+                    <input type="date" class="form-control" [(ngModel)]="curso.dataInicio" />
+                </div>
+            </div>
+            <!-- linha botão Salvar -->
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-lg-6">
+                    <button type="button" class="btn btn-primary" style="margin-right: 10px;"
+                        (click)="salvar()">Incluir</button>
+                    <button type="button" class="btn btn-primary" style="margin-right: 10px;"
+                        (click)="voltar()">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-layout>

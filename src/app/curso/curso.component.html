@@ -1,19 +1,49 @@
 <app-layout>
-    <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Curso</h5>  
-          <div class="row">
-            <div class="form-group col-12">
-              <label for="nome"class="control-label">Nome:</label>
-              <input type="text" class="form-control" [(ngModel)]="curso.nome"/>
-            </div>            
-          </div>
-          <div class="row" style="margin-bottom: 20px;">
-            <div class="col-12">
-              <!-- <button type="button" class="btn btn-primary" (click)="exibirAlerta(cursoInput.value)">Pesquisar</button> -->
-              <button type="button" class="btn btn-primary" (click)="exibirAlerta()">Pesquisar</button>
-            </div>
-          </div> 
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Curso</h5>
+      <!-- linha input -->
+      <div class="row">
+        <div class="form-group col-12">
+          <label for="nome" class="control-label">Nome:</label>
+          <input type="text" class="form-control" [(ngModel)]="curso.nome" />
         </div>
+      </div>
+      <!-- linha Botão -->
+      <div class="row" style="margin-bottom: 20px;">
+        <div class="col-12">
+          <button type="button" class="btn btn-primary" (click)="exibirAlerta()">Pesquisar</button>
+        </div>
+      </div>
+      <!-- linha tabela -->
+      <div class="row">
+        <div class="col-lg-12">
+          <table class="table">
+            <tr>
+              <th>Código</th>
+              <th>Nome</th>
+              <th>Carga Horária</th>
+              <th>Data de Inicio</th>
+              <th>Instrutor</th>
+              <th>Local</th>
+            </tr>
+            <tr *ngFor="let item of listaCursos">
+              <td>{{ item.codigo }}</td>
+              <td>{{ item.nome }}</td>
+              <td>{{ item.cargaHoraria }}</td>
+              <td>{{ item.dataInicio | date:'dd/MM/yyyy'}}</td>
+              <td>{{ item.instrutor }}</td>
+              <td>{{ item.local }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- linha botão incluir -->
+      <div class="row" style="margin-bottom: 20px;">
+        <div class="col-lg-12">
+          <button type="button" class="btn btn-primary" style="margin-right: 10px;" (click)="incluir()">Incluir</button>              
+        </div>
+      </div>
     </div>
+  </div>
 </app-layout>
