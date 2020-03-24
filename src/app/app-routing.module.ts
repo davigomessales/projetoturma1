@@ -4,6 +4,7 @@ import { CursoComponent } from './curso/curso.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { AlunoManterComponent } from './aluno/aluno-manter/aluno-manter.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,16 @@ const routes: Routes = [
   {
     path: 'aluno',
     component: AlunoComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'aluno/incluir',
+    component: AlunoManterComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'aluno/alterar/:id',
+    component: AlunoManterComponent,
     pathMatch: 'full'
   }
 ];

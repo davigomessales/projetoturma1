@@ -1,1 +1,33 @@
-<p>aluno-manter works!</p>
+<app-layout>
+  <div class="card">
+    <div class="card-body">
+        <h5 *ngIf="operacao=='Incluir'" class="card-title">Aluno - Incluir</h5>
+        <h5 *ngIf="operacao!=='Incluir'" class="card-title">Aluno - Alterar</h5>
+        <!-- Input do Curso -->
+        <div class="row">
+            <div class="form-group col-12">
+                <label for="nome" class="control-label">Nome:</label>
+                <input type="text" class="form-control" [(ngModel)]="aluno.nome" />
+            </div>
+        </div>
+        <!-- Input da Data de Nascimento -->
+        <div class="row">
+            <div class="form-group col-12">
+                <label for="nome" class="control-label">Data de Nascimento:</label>
+                <input type="date" class="form-control" [(ngModel)]="aluno.dataNascimento" />
+            </div>
+        </div>
+        <!-- linha botão Salvar -->
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-lg-6">
+                <button *ngIf="operacao=='Incluir'"  type="button" class="btn btn-primary" style="margin-right: 10px;"
+                    (click)="salvar()">Incluir</button>
+                    <button *ngIf="operacao !=='Incluir'"  type="button" class="btn btn-primary" style="margin-right: 10px;"
+                    (click)="alterar()">Alterar</button>
+                <!--<button type="button" class="btn btn-primary" style="margin-right: 10px;"
+                    (click)="voltar()">Voltar</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+</app-layout>

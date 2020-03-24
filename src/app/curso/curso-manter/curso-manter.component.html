@@ -1,7 +1,8 @@
 <app-layout>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Curso - Incluir</h5>
+            <h5 *ngIf="operacao=='Incluir'" class="card-title">Curso - Incluir</h5>
+            <h5 *ngIf="operacao!=='Incluir'" class="card-title">Curso - Alterar</h5>
             <!-- Input do Curso -->
             <div class="row">
                 <div class="form-group col-12">

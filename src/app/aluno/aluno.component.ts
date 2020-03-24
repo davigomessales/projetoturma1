@@ -12,17 +12,18 @@ export class AlunoComponent implements OnInit {
 
   aluno: Aluno = new Aluno();
   listaAlunos: Aluno[] = [];
+  selecionado: Aluno;
 
   constructor(
     private alunoServico: AlunoService,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.pesquisar();
   }
 
-  pesquisar(){
+  pesquisar() {
     this.alunoServico.consultar(this.aluno.nome).subscribe(
       (data: Aluno[]) => {
         this.listaAlunos = data;
@@ -30,15 +31,28 @@ export class AlunoComponent implements OnInit {
       }
     );
   }
+  selecionar(valor) {
+    this.selecionado = valor;
+  }
   exibirAlerta() {
     this.alunoServico.consultar(this.aluno.nome).subscribe(
       (data: Aluno[]) => {
         this.listaAlunos = data;
       }
     );
-    //console.log(JSON.stringify(this.listaAlunos));
   }
-incluir() {
-  this.router.navigate(['/aluno/incluir']);
-}
+  incluir() {
+    this.router.navigate(['/aluno/incluir']);
+  }
+
+  remover() {
+    this.alunoServico.remover(this.selecionado).subscribe(
+      data => {
+        alert(data['mensagem']);
+      }
+    );
+  }
+  alterar() {
+    this.router.navigate(['/aluno/alterar/'+ this.selecionado.nome]);
+  }
 }

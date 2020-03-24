@@ -15,45 +15,45 @@ export class CursoManterComponent implements OnInit {
   operacao: string = 'Incluir';
 
   constructor(
-    private _router: Router,
-    private _cursoService: CursoService,
-    private _routeActivated: ActivatedRoute
+    private router: Router,
+    private cursoService: CursoService,
+    private routeActivated: ActivatedRoute
     ) { }
 
     ngOnInit(): void {
-      this.nomeCurso = this._routeActivated.snapshot.params.id;
-      if(this.nomeCurso != null){
+      this.nomeCurso = this.routeActivated.snapshot.params.id;
+      if (this.nomeCurso != null) {
         this.operacao = 'Alterar';
-        this._cursoService.pesquisar(this.nomeCurso).subscribe(
+        this.cursoService.pesquisar(this.nomeCurso).subscribe(
           data => {
-            this.curso = (<Curso[]>data)[0];
+            this.curso = (data as Curso[])[0];
           }
         );
       }
     }
 
-  alterar(){
-    this._cursoService.alterar(this.curso).subscribe(
+  alterar() {
+    this.cursoService.alterar(this.curso).subscribe(
       data => {
         alert(data['mensagem']);
-        this._router.navigate(['/curso']);
+        this.router.navigate(['/curso']);
       }
     );
   }
-  salvar(){
+  salvar() {
     console.log(this.curso);
-    this._cursoService.incluir(this.curso).subscribe(
-      retorno =>{
+    this.cursoService.incluir(this.curso).subscribe(
+      retorno => {
         console.log(retorno)
-        alert(retorno['mensagem'])
-        this._router.navigate(['/curso']);
+        alert(retorno['mensagem']);
+        this.router.navigate(['/curso']);
       }
     );
 
   }
 
-  voltar(){
-    this._router.navigate(['/curso']);
+  voltar() {
+    this.router.navigate(['/curso']);
   }
 
 
