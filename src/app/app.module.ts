@@ -7,9 +7,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CursoComponent } from './curso/curso.component';
 import { LayoutComponent } from './layout/layout.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CursoManterComponent } from './curso/curso-manter/curso-manter.component';
+import { AlunoComponent } from './aluno/aluno.component';
+import { AlunoManterComponent } from './aluno/aluno-manter/aluno-manter.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,10 @@ import { CursoManterComponent } from './curso/curso-manter/curso-manter.componen
     HomeComponent,
     CursoComponent,
     LayoutComponent,
-    CursoManterComponent
-    
+    CursoManterComponent,
+    AlunoComponent,
+    AlunoManterComponent
+
   ],
   imports: [
     BrowserModule,

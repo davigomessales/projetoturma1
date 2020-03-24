@@ -1,3 +1,4 @@
+import { AlunoComponent } from './aluno/aluno.component';
 import { CursoManterComponent } from './curso/curso-manter/curso-manter.component';
 import { CursoComponent } from './curso/curso.component';
 import { NgModule, Component } from '@angular/core';
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: 'curso/alterar/:id',
     component: CursoManterComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'aluno',
+    component: AlunoComponent,
     pathMatch: 'full'
   }
 ];
