@@ -20,6 +20,7 @@
         <div class="col-lg-12">
           <table class="table">
             <tr>
+              <th></th>
               <th>Código</th>
               <th>Nome</th>
               <th>Carga Horária</th>
@@ -28,6 +29,7 @@
               <th>Local</th>
             </tr>
             <tr *ngFor="let item of listaCursos">
+              <th><input type="radio" name="selecionado" (change)="selecionar(item)"/></th>
               <td>{{ item.codigo }}</td>
               <td>{{ item.nome }}</td>
               <td>{{ item.cargaHoraria }}</td>
@@ -41,7 +43,19 @@
       <!-- linha botão incluir -->
       <div class="row" style="margin-bottom: 20px;">
         <div class="col-lg-12">
-          <button type="button" class="btn btn-primary" style="margin-right: 10px;" (click)="incluir()">Incluir</button>              
+          <button type="button" class="btn btn-primary" style="margin-right: 10px;" (click)="incluir()">Incluir</button>
+        </div>
+      </div>
+      <!-- linha botão remover -->
+      <div class="row" style="margin-bottom: 20px;">
+        <div class="col-lg-12">
+          <button type="button" class="btn btn-primary" style="margin-right: 10px;" (click)="remover()">Excluir</button>
+        </div>
+      </div>
+      <!-- linha botão alterar -->
+      <div class="row" style="margin-bottom: 20px;">
+        <div class="col-lg-12">
+          <button type="button" class="btn btn-primary" style="margin-right: 10px;" (click)="alterar()">Alterar</button>
         </div>
       </div>
     </div>

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class CursoComponent implements OnInit {
 
   curso: Curso = new Curso;
+  selecionado: Curso;
   listaCursos: Curso[] = [];
 
   constructor(
@@ -19,11 +20,31 @@ export class CursoComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.pesquisar();
+  }
+
+  pesquisar(){
     this._cursoServico.pesquisar(this.curso.nome).subscribe(
       (data: Curso[]) => {
         this.listaCursos = data;
       }
     );
+  }
+  selecionar(valor){
+    this.selecionado = valor;
+  }
+
+  remover(){
+    console.log(this.selecionado.nome + 'Removido com sucesso');
+    this._cursoServico.remover(this.selecionado).subscribe(
+      data => {
+        alert(data['mensagem']);
+      }
+    );
+  }
+
+  alterar(){
+    this._router.navigate(['/curso/alterar/'+ this.selecionado.nome]);
   }
 
   exibirAlerta() {

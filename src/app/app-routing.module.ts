@@ -1,6 +1,6 @@
 import { CursoManterComponent } from './curso/curso-manter/curso-manter.component';
 import { CursoComponent } from './curso/curso.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
@@ -18,6 +18,11 @@ const routes: Routes = [
   },
   {
     path: 'curso/incluir',
+    component: CursoManterComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'curso/alterar/:id',
     component: CursoManterComponent,
     pathMatch: 'full'
   }
